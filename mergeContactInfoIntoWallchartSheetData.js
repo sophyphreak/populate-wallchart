@@ -2,20 +2,20 @@ const mergeContactInfoIntoWallchartSheetData = (
   contactInfoSheetData,
   wallchartSheetData
 ) => {
-  const newwallchartSheetData = []
+  const newWallchartSheetData = []
 
   contactInfoSheetData = addTouchedProperty(contactInfoSheetData)
 
   wallchartSheetData.forEach((wallchartRow, index) => {
     if (isHeaderRow(index)) {
-      newwallchartSheetData.push(wallchartRow)
+      newWallchartSheetData.push(wallchartRow)
       return
     }
 
     const { unitNumber } = wallchartRow
 
     if (noContactInfoFound(unitNumber, contactInfoSheetData)) {
-      newwallchartSheetData.push(wallchartRow)
+      newWallchartSheetData.push(wallchartRow)
       return
     }
     if (isAlreadyAddedRow(unitNumber, contactInfoSheetData)) {
@@ -26,7 +26,7 @@ const mergeContactInfoIntoWallchartSheetData = (
     tenants = addFloorAndSide(tenants, wallchartRow)
 
     if (rowHasData(wallchartRow)) {
-      newwallchartSheetData.push(wallchartRow)
+      newWallchartSheetData.push(wallchartRow)
       tenants = removeExtraTenantIfExists(tenants, wallchartRow)
     }
 
@@ -34,9 +34,9 @@ const mergeContactInfoIntoWallchartSheetData = (
       return
     }
 
-    newwallchartSheetData.push(...tenants)
+    newWallchartSheetData.push(...tenants)
   })
-  return newwallchartSheetData
+  return newWallchartSheetData
 }
 
 // make sure we don't add a unit's inhabitants more than once
