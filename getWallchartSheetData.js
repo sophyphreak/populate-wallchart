@@ -11,6 +11,7 @@ const getWallchartSheetData = (workbook) => {
       relations,
       htu,
       floorCaptain,
+      signature,
       phoneNumber,
       email,
     ] = row.values
@@ -23,6 +24,7 @@ const getWallchartSheetData = (workbook) => {
       relations,
       htu,
       floorCaptain,
+      signature,
       phoneNumber,
       email,
     })
