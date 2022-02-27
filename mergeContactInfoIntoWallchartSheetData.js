@@ -76,8 +76,22 @@ const addFloorAndSide = (tenants, wallchartRow) => {
   })
 }
 
-const rowHasData = ({ firstName, lastName, relations, phoneNumber, email }) => {
-  if (firstName || lastName || relations || phoneNumber || email) {
+const rowHasData = ({
+  firstName,
+  lastName,
+  relations,
+  phoneNumber,
+  email,
+  rest,
+}) => {
+  if (
+    firstName ||
+    lastName ||
+    relations ||
+    phoneNumber ||
+    email ||
+    rest.length
+  ) {
     return true
   }
   return false

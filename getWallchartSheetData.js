@@ -17,6 +17,7 @@ const getWallchartSheetData = (workbook) => {
       signature,
       phoneNumber,
       email,
+      ...rest // all cells to the right
     ] = row.values
     sheet.push({
       firstName,
@@ -30,6 +31,7 @@ const getWallchartSheetData = (workbook) => {
       signature,
       phoneNumber,
       email,
+      rest,
     })
   })
   return sheet
@@ -37,6 +39,9 @@ const getWallchartSheetData = (workbook) => {
 
 const validateColumnHeaders = (columnHeaders) => {
   columnHeaders.forEach((header, index) => {
+    if (index >= expectedColumnHeaders.length) {
+      return
+    }
     const expectedHeader = expectedColumnHeaders[index]
     if (header !== expectedHeader) {
       throw new Error(

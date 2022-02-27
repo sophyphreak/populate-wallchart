@@ -21,6 +21,7 @@ const getContactInfoSheetData = (workbook) => {
       phoneNumber,
       email,
       canAttendMeeting,
+      rest: [], // to prevent errors. `rest` refers to all other cells to the right of the main ones
     }
     if (sheet.hasOwnProperty(unitNumber)) {
       sheet[unitNumber].push(tenant)

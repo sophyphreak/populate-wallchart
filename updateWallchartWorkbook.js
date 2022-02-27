@@ -64,6 +64,7 @@ const insertRowData = ({
     signature,
     phoneNumber,
     email,
+    rest,
   },
 }) => {
   wallchartSheet.insertRow(
@@ -81,6 +82,7 @@ const insertRowData = ({
       signature,
       phoneNumber,
       email,
+      ...rest,
     ],
     "i+"
   )
