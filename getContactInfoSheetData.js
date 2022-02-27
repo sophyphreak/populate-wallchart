@@ -4,6 +4,7 @@ const getContactInfoSheetData = (workbook) => {
   workbook.getWorksheet("Form Responses 1").eachRow((row, index) => {
     // to get rid of header row, index starts at 1 for some reason
     if (index === 1) {
+      validateColumnHeaders(row.values)
       return
     }
 
@@ -29,6 +30,27 @@ const getContactInfoSheetData = (workbook) => {
   })
   return sheet
 }
+
+const validateColumnHeaders = (columnHeaders) => {
+  columnHeaders.forEach((header, index) => {
+    const expectedHeader = expectedColumnHeaders[index]
+    if (header !== expectedHeader) {
+      throw new Error(
+        `Unexpected column header. Expected: ${expectedHeader} but instead received: ${header}`
+      )
+    }
+  })
+}
+
+const expectedColumnHeaders = [
+  ,
+  "Timestamp",
+  "Name:",
+  "Unit #:",
+  "Phone #:",
+  "Email:",
+  "Can you attend our Zoom meeting, this Monday at 7:30pm?",
+]
 
 const getFirstLastName = (name) => {
   const spaceIndex = name.indexOf(" ")
