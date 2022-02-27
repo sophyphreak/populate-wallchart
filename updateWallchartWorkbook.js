@@ -31,14 +31,18 @@ const updateWallchartWorkbook = (wallChartWorkbook, wallchartSheetData) => {
 }
 
 const standardizePhoneNumber = (phoneNumber) => {
-  if (phoneNumber) {
-    phoneNumber = phoneNumber.toString()
-    phoneNumber = removeNonNumberCharacters(phoneNumber)
-    phoneNumber = `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
-      3,
-      6
-    )}-${phoneNumber.slice(6)}` // (123) 456-7890 format
+  if (!phoneNumber) {
+    return ""
   }
+  phoneNumber = phoneNumber.toString()
+  phoneNumber = removeNonNumberCharacters(phoneNumber)
+  if (phoneNumber.length < 7) {
+    return ""
+  }
+  phoneNumber = `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+    3,
+    6
+  )}-${phoneNumber.slice(6)}` // (123) 456-7890 format
   return phoneNumber
 }
 
