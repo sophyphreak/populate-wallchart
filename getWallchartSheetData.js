@@ -14,6 +14,7 @@ const getWallchartSheetData = (workbook) => {
       relations,
       htu,
       floorCaptain,
+      attendedMeeting,
       signature,
       phoneNumber,
       email,
@@ -28,9 +29,10 @@ const getWallchartSheetData = (workbook) => {
       relations,
       htu,
       floorCaptain,
+      attendedMeeting,
       signature,
       phoneNumber,
-      email,
+      email: email ? email.toLowerCase() : undefined,
       rest,
     })
   })
@@ -61,6 +63,7 @@ const expectedColumnHeaders = [
   "Relations",
   "HTU",
   "Floor captain",
+  "Attended Meeting?",
   "Signature",
   "Phone Number",
   "Email",

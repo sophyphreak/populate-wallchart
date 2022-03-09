@@ -19,7 +19,7 @@ const getContactInfoSheetData = (workbook) => {
       lastName,
       unitNumber,
       phoneNumber,
-      email,
+      email: email ? email.toLowerCase() : undefined,
       canAttendMeeting,
       rest: [], // to prevent errors. `rest` refers to all other cells to the right of the main ones
     }

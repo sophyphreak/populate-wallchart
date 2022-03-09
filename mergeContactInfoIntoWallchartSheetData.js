@@ -35,6 +35,7 @@ const mergeContactInfoIntoWallchartSheetData = (
     }
 
     newWallchartSheetData.push(...tenants)
+    contactInfoSheetData[unitNumber].touched = true
   })
   return newWallchartSheetData
 }
