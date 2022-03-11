@@ -66,7 +66,7 @@ const expectedColumnHeaders = [
   "Attended Meeting?",
   "Signature",
   "Phone Number",
-  "Email",
+  "email",
 ]
 
 export default getWallchartSheetData

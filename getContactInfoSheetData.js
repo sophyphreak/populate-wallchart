@@ -50,7 +50,7 @@ const expectedColumnHeaders = [
   "Unit #:",
   "Phone #:",
   "Email:",
-  "Can you attend our Zoom meeting, this Monday at 7:30pm?",
+  "We have Zoom meetings on Mondays at 7:30pm. Do you want us to send you text reminders?",
 ]
 
 const getFirstLastName = (name) => {
